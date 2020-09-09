@@ -1,14 +1,16 @@
 $(function onLoad(){
     //this code runs after page is fully loaded
-    $("form").submit(function(){
+
+    $("#nameform").on('submit', function(event){
+        event.preventDefault();
         alert("Submitted");
-        $("#jumbotron").removeClass('d-none');
+        var fname=$('#fname').val();
+        var lname=$('#lname').val();
+        var newHTML='<h1>'+fname+ ' '+lname+'</h1>';
+        $(".jumbotron").removeClass('d-none').html(newHTML);
     });
     
-    document.getElementById("nameform").addEventListener('submit', function(event){
-        event.preventDefault();
-    });
-
+    return false;
     //$("#jumbotron").removeClass('d-none');
     //$('#jumbotron').toggle();
     //document.getElementById("jumbotron").style.display = 'none !important';
